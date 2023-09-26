@@ -73,7 +73,7 @@ Passo a passo resumido do projeto:
 
 ## Coleta e Limpeza dos Dados
 
-As etapas de coleta e de limpeza dos dados encontram-se detalhadas no arquivo 'data_cleaning.ipynb'. A estratégia utilizada foi selecionar apenas as colunas de interesse, as quais eram: data da compra, código do produto, categoria do produto, marca do produto e valor da compra. Quanto as linhas, foram selecionadas apenas as que caracterizavam compras (visto que as visualizações não eram necessárias), reduzindo o tamanho do conjunto de dados em mais de 90% (de quase 10GB para, em média, 60MB). Também foram removidas as linhas que continham algum dado faltante, para não comprometer os resultados da análise. Após finalizada a limpeza, foram concatenados os conjuntos dos meses de janeiro a abril, formando um único dataframe completo e pronto para a etapa de análise exploratória e de modelagem.
+As etapas de coleta e de limpeza dos dados encontram-se detalhadas no arquivo **data_cleaning.ipynb**. A estratégia utilizada foi selecionar apenas as colunas de interesse, as quais eram: data da compra, código do produto, categoria do produto, marca do produto e valor da compra. Quanto as linhas, foram selecionadas apenas as que caracterizavam compras (visto que as visualizações não eram necessárias), reduzindo o tamanho do conjunto de dados em mais de 90% (de quase 10GB para, em média, 60MB). Também foram removidas as linhas que continham algum dado faltante, para não comprometer os resultados da análise. Após finalizada a limpeza, foram concatenados os conjuntos dos meses de janeiro a abril, formando um único dataframe completo e pronto para a etapa de análise exploratória e de modelagem.
 
 ## Determinação dos Produtos Escolhidos para o Projeto
 
@@ -98,7 +98,7 @@ Os produtos escolhidos para o projeto seguiram as premissas citadas anteriorment
 
 ## Resultados do Modelo
 
-Os resultados do modelo podem ser visualizados no notebook 'elasticidade_preco.ipynb' e na aplicação web, onde são exibidas uma tabela contendo as elasticidades e outra contendo as elasticidades cruzadas. O produto que apresentou a maior elasticidade de preço absoluta foi o de código 1304849, com uma elasticidade de 128.41, mostrando uma grande sensilidade na demanda a partir da variação do seu preço, sendo um bom candidato para redução de preço. Enquanto isso, o produto de código 1307310 foi o que apresentou a menor elasticidade absoluta (2.93), mostrando baixa sensibilidade na demanda a partir da variação do seu preço, sendo um bom candidato para aumento de preço.
+Os resultados do modelo podem ser visualizados no notebook **elasticidade_preco.ipynb** e na aplicação web, onde são exibidas uma tabela contendo as elasticidades e outra contendo as elasticidades cruzadas. O produto que apresentou a maior elasticidade de preço absoluta foi o de código 1304849, com uma elasticidade de 128.41, mostrando uma grande sensilidade na demanda a partir da variação do seu preço, sendo um bom candidato para redução de preço. Enquanto isso, o produto de código 1307310 foi o que apresentou a menor elasticidade absoluta (2.93), mostrando baixa sensibilidade na demanda a partir da variação do seu preço, sendo um bom candidato para aumento de preço.
 
 ## Resultados de Negócio
 
