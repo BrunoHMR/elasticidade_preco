@@ -12,7 +12,7 @@ Sabemos que ao aumentar o preço de um produto a demanda tende a cair. Ainda ass
 **1. Cálculo da elasticidade de preço:**
 - O que o cálculo da elasticidade de preço indica: sensibilidade da demanda em relação à variação dos preços.
 - Processo do cálculo: a elasticidade de preço é calculada através de uma regressão linear, onde a variável dependente X é o preço e a variável independente Y é a demanda. A reta da regressão que melhor se ajusta aos dados observados é obtida via método dos mínimos quadrados, o qual busca minimizar a soma dos quadrados dos erros entre os valores previstos e os valores reais.
-- Equação da elasticidade de preço: variação percentual na quantidade demandada) / (variação percentual no preço)
+- Equação da elasticidade de preço: (variação percentual na quantidade demandada) / (variação percentual no preço)
 
 
 **2. Tipos de elasticidade de preço:**
@@ -41,7 +41,7 @@ Foi escolhido um conjunto de dados que contém registros das compras ocorridas e
 
 ## Formato da Entrega
 
-**1.** Aplicação Web onde os stakeholders podem escolher os aumentos e as diminuições percentuais nos preços e verificar as alterações geradas no faturamento de maneira interativa. Link da aplicação: https://elasticidadepreco-9yu7o6hwyjvedjgeanojfw.streamlit.app/.
+**1.** Aplicação Web onde os stakeholders podem escolher os aumentos e as diminuições percentuais nos preços e verificar as alterações geradas no faturamento de maneira interativa. Além disso, contém as tabelas resultantes dos cálculos da elasticidade de preço e da elasticidade de preço cruzada. Link da aplicação: https://elasticidadepreco-9yu7o6hwyjvedjgeanojfw.streamlit.app/.
 
 **2.** Dashboard no Power BI contendo uma análise exploratória completa dos dados escolhidos no projeto, respondendo as seguintes perguntas:
 - Quais os meses, quais as semanas e quais os dias da semana que vendem mais?
@@ -86,4 +86,26 @@ Os produtos escolhidos para o projeto seguiram as premissas citadas anteriorment
 - O dia do mês que mais vendeu headphones no período analisado foi o dia 12 (com mais de 900 mil dólares acumulados em vendas), seguido pelo dia 16 (com mais de 800 mil dólares em vendas). Em compensação, o dia que menos vendeu foi o dia 20, com pouco mais de 300 mil dólares em vendas.
 - O dia da semana que mais vendeu foi quarta-feira, com valor acumulado no período de US$ 3,2 mi. Em contrapartida, dia da semana que menos vende é terça, com valor acumulado no período de US$ 2,6 mi.
 - A semana que mais vendeu headphones durante o período analisado foi a semana 14, seguida pelas semanas 7 e 13, respectivamente. Enquanto isso, a semana que menos vendeu foi a primeira.
+
+## Estratégia de Preparação dos Dados
+
+1. Criação de coluna de demanda de compras por semana através da contagem dos produtos.
+2. Criação de coluna de preço médio por semana através da média dos preços dos produtos.
+3. Transposição da tabela original, onde os códigos dos produtos viraram colunas e as linhas foram preenchidas pelos preços médios dos produtos por semana (x_price).
+4. Transposição da tabela original, onde os códigos dos produtos viraram colunas e as linhas foram preenchidas pelas demandas dos produtos por semana (y_demand).
+5. Preenchimento dos valores nulos da tabela 'x_price' através mediana dos preços, a fim de gerar um menor impacto no valor médio e na etapa da modelagem de Machine Learning.
+6. Preenchimento dos valores nulos da tabela 'y_demand' com 0, visto que estes valores nulos indicam que naquela semana não houve nenhuma compra.
+
+## Resultados do Modelo
+
+Os resultados do modelo podem ser visualizados no notebook 'elasticidade_preco.ipynb' e na aplicação web, onde são exibidas uma tabela contendo as elasticidades e outra contendo as elasticidades cruzadas. O produto que apresentou a maior elasticidade de preço absoluta foi o de código 1304849, com uma elasticidade de 128.41, mostrando uma grande sensilidade na demanda a partir da variação do seu preço, sendo um bom candidato para redução de preço. Enquanto isso, o produto de código 1307310 foi o que apresentou a menor elasticidade absoluta (2.93), mostrando baixa sensibilidade na demanda a partir da variação do seu preço, sendo um bom candidato para aumento de preço.
+
+## Resultados de Negócio
+
+Os resultados de negócio comprovam as hipóteses do resultado do modelo, visto que, simulando uma redução percentual de 10% no preço o produto mais impactado é justamente o de código 1304849, o qual demonstra um aumento percentual acumulado no faturamento para o período de 4 meses de 1055.77%, saltando de US$ 45,709.30 para US$ 528,294.08, uma variação absoluta de US$ 482,584.78.
+
+Considerando um aumento percentual de 10% nos preços o produto mais impactado é o de código 1307310, apresentando um aumento percentual acumulado no faturamento durante o período analisado de 274.74%, saltando de US$ 723,973.64 para US$ 2,713,008.30, uma variação absoluta de US$ 1,989,034.66.
+
+Demais testes e variações percentuais podem ser testadas pelos stakeholders por meio da aplicação web desenvolvida. 
+
 
